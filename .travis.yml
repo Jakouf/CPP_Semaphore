@@ -1,5 +1,0 @@
-language: c++
-osx_image: xcode7.3
-
-notifications:
-  email: false
