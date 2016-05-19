@@ -29,7 +29,7 @@ This project implements a semaphore type platform independent in C++. Highly inf
   
   ```C++
   
-  dispatch::semaphore_wait(dispatch::semaphore_c& semaphore)
+  dispatch::semaphore_signal(dispatch::semaphore_c& semaphore)
   
   ```
   
