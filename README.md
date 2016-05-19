@@ -1,11 +1,17 @@
 # CPP_Semaphore
 This project implements a semaphore type platform independent in C++. Highly influenced by lib dispatch 
 
-### Example:
+## Example:
 
-  A sample application can be found in sample.cpp. 
+A sample application can be found in sample.cpp. 
   
-### Usage:
+## Single-Header-Include:
+
+```C++
+  #include "cppSemaphore.hpp" 
+```
+
+## Usage:
   
   ```C++
   
