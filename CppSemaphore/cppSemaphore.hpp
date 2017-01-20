@@ -43,18 +43,14 @@ public:
   
   std::condition_variable cv;
   std::mutex locker;
-  long s_count;
-  std::mutex countLocker;
+  std::atomic<long> s_count;
 };
 
 namespace dispatch {
   
   auto semaphore_signal(dispatch::semaphore_c& semaphore) -> long
   {
-    std::unique_lock<std::mutex> (semaphore.countLocker);
-    semaphore.s_count--;
-    
-    if (semaphore.s_count < 0) {
+    if (--semaphore.s_count < 0) {
       semaphore.cv.notify_one();
     }
     return semaphore.s_count;
