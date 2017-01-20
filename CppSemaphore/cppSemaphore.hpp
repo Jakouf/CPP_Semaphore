@@ -44,12 +44,14 @@ public:
   std::condition_variable cv;
   std::mutex locker;
   long s_count;
+  std::mutex countLocker;
 };
 
 namespace dispatch {
   
   auto semaphore_signal(dispatch::semaphore_c& semaphore) -> long
   {
+    std::unique_lock<std::mutex> (semaphore.countLocker);
     semaphore.s_count--;
     
     if (semaphore.s_count < 0) {
